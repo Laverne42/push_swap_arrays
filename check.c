@@ -6,14 +6,14 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 08:58:20 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/11/16 09:20:52 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/11/18 09:56:09 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Saltamos el posible signo inicial (+/-) si lo hay
-// y recorremos cada posición comprobando si es un dígito.
+// y recorremos cada posición comprobando que sea un dígito.
 int ft_check_digits(char **argv)
 {
     int x;

@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:00:38 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/11/22 12:13:12 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/11/24 10:37:11 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,11 @@ int	ft_atoi(const char *str)
 	return (n * neg);
 }
 
-// Relleno del array con los números recibidos por argumentos
+// Relleno del array con los números recibidos por argumentos.
+// Si hay dos argumentos (números entre comillas), -> ft_split y atoi
+// Si hay más de dos, -> atoi
+// En ambos casos los guardamos en orden inverso
+// NOTA: REVISAR TABULACIONES EN ARGC == 2
 int	*ft_fill_args(int argc, char **argv)
 {
 	int		*arr;
@@ -60,31 +64,25 @@ int	*ft_fill_args(int argc, char **argv)
 	z = 0;
 	x = argc - 1;
     arr = malloc(sizeof(int) * x);
-	if (argc < 2)
-		ft_exit(1);
 	if (argc == 2)
 	{
-		//str = argv[1];
         str = ft_split(argv[1], ' ');
 		y = 0;
 		while (str[y])
-		{
 			y++;
-		}
-		while (str[y])
+		while (str[z])
 		{
-			arr[y] = ft_atoi(str[z]);
-				y--;
-				z++;
+			arr[z] = ft_atoi(str[y - 1]);
+			y--;
+			z++;
 		}
 	}
-	// Rellenamos un array de int con los números recibidos
-	// por argumento en orden inverso. 
-	else
+	else if (argc > 2)
 	{
-		while (argv[z])
+		while (argv[z] && x > 0)
 		{
 			arr[z] = ft_atoi(argv[x]);
+			printf("%d\n", arr[z]);
 				x--;
 				z++;
 		}
@@ -100,20 +98,18 @@ void	ft_exit(int code)
 	exit(code);
 }
 
-/* void	ft_push_swap(t_var *v, int argc, char **argv)
-{
-	t_list	*stack_a;
-
-	stack_a = NULL;
-	v = ft_fill_args(argc, argv);
-}
- */
 int	main(int argc, char **argv)
 {
-	/* t_var *v;
-
-	v = NULL; */
-    int     *arrargs;
-    arrargs = ft_fill_args(argc, argv);
+	t_stack		*a;
+	t_stack		*b;
+	a = malloc(sizeof(t_stack));
+	b = malloc(sizeof(t_stack));
+	a->array = malloc ((argc -1) * sizeof(int));
+	b->array = malloc ((argc - 1) * sizeof(int));
+	if (a->array == NULL || b->array == NULL)
+		return(0);
+	a->array = ft_fill_args(argc, argv);
+	a->max = argc - 2;
+	b->max = 0;
 	return (0);
 }

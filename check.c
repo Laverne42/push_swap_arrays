@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 08:58:20 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/11/18 09:56:09 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/11/24 10:36:08 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int ft_check_digits(char **argv)
     y = 0;
     if (!argv[0])
         ft_exit(1);
-    if (argv[x][y] == '-' || argv[x[y] == '+'])
+    if (argv[x][y] == '-' || argv[x][y] == '+')
         y++;
     while (argv[x][y] != '\0')
     {

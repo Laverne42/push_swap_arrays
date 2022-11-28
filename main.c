@@ -6,47 +6,11 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:00:38 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/11/24 10:37:11 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/11/28 10:13:27 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	x;
-
-	x = 0;
-	while (s[x])
-		x++;
-	return (x);
-}
-
-int	ft_atoi(const char *str)
-{
-	int	x;
-	int	n;
-	int	neg;
-
-	x = 0;
-	n = 0;
-	neg = 1;
-	while ((str[x] == 32) || (str[x] >= 9 && str[x] <= 13))
-		x++;
-	if (str[x] == '-')
-	{
-		neg = -1;
-		x++;
-	}
-	else if (str[x] == '+')
-		x++;
-	while (str[x] >= '0' && str[x] <= '9' && str[x] != '\0')
-	{
-		n = n * 10 + (str[x] - '0');
-		x++;
-	}
-	return (n * neg);
-}
 
 // Relleno del array con los números recibidos por argumentos.
 // Si hay dos argumentos (números entre comillas), -> ft_split y atoi
@@ -82,7 +46,7 @@ int	*ft_fill_args(int argc, char **argv)
 		while (argv[z] && x > 0)
 		{
 			arr[z] = ft_atoi(argv[x]);
-			printf("%d\n", arr[z]);
+		//	printf("%d\n", arr[z]);
 				x--;
 				z++;
 		}
@@ -98,12 +62,19 @@ void	ft_exit(int code)
 	exit(code);
 }
 
+// Creamos a y b en la estructura para los dos stacks.
+// Rellenamos el stack a con la función ft_fill_args.
+// Sacamos el valor máximo de a y de b (en el caso de b, 0);
 int	main(int argc, char **argv)
 {
 	t_stack		*a;
 	t_stack		*b;
+	int			x;
 	a = malloc(sizeof(t_stack));
 	b = malloc(sizeof(t_stack));
+	x = 0;
+	if (ft_check_digits(argv) == 1)
+		ft_exit(1);
 	a->array = malloc ((argc -1) * sizeof(int));
 	b->array = malloc ((argc - 1) * sizeof(int));
 	if (a->array == NULL || b->array == NULL)
@@ -111,5 +82,10 @@ int	main(int argc, char **argv)
 	a->array = ft_fill_args(argc, argv);
 	a->max = argc - 2;
 	b->max = 0;
+	if (ft_check_sort(a) == 1)
+	{
+		printf("hola");
+		return (0);
+	}
 	return (0);
 }

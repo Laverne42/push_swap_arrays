@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 10:55:57 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/11/04 10:07:08 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:56:26 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 long long	ft_atoi_long_long(char *str)
 {
 	int	x;
-	int	n;
+	long long	n;
 	int	neg;
 
 	x = 0;

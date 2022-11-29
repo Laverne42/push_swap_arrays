@@ -6,11 +6,36 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 08:58:20 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/11/28 11:04:28 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:56:23 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// Chequeamos que cada argumento, al convertirlo
+// en número, no se pase del INT_MIN ni del INT_MAX.
+// Usamos una función atoi con long long.
+int	ft_check_int_max(int argc, char **argv)
+{
+    int     x;
+    int     y;
+    long long    *arr;
+
+    x = 0;
+    y = 1;
+    arr = malloc(sizeof(long long));
+	while (argc > 1)
+	{
+       arr[x] = ft_atoi_long_long(argv[y]);
+       if (arr[x] < INT_MIN || arr[x] > INT_MAX)
+            return(1);
+    x++;
+    y++;
+    argc--;
+    }
+    free(arr);
+    return (0);
+}
 
 // Saltamos el posible signo inicial (+/-) si lo hay
 // y recorremos cada posición comprobando que sea un dígito.
@@ -29,7 +54,7 @@ int ft_check_digits(char **argv)
         if (argv[x][y] == '-' || argv[x][y] == '+')
             y++;
         if (ft_isdigit(argv[x][y]) == 0)
-            ft_exit(1); 
+            return(1);
         while (ft_isdigit(argv[x][y] == 1))
             y++;
     x++;
@@ -51,14 +76,30 @@ int ft_check_sort(t_stack *a)
 	while (x >= 0 && a->array[x] < a->array[x-1])
 		x--;
  	if (x == 0)
-    	return(1);
+       	return(1);
 return(0);
 }
 
-/* int ft_check_dup(t_stack *a)
+// Chequeamos si hay números repetidos en 'a',
+// comparando la primera posición con la siguiente
+// e incrementando esta si son diferentes.
+// Si se detecta algún caso en que sean iguales,
+// devolvemos 1 y salimos con ft_exit en el main.
+int ft_check_dup(t_stack *a)
 {
     int x;
+    int y;
 
     x = 0;
-    while (x)
-} */
+    y = 0;
+    while (a->array[y])
+    {
+        y = x+1;
+        while (y <= a->max && a->array[x] != a->array[y])
+            y++;
+        if (a->array[x] == a->array[y])
+            return(1);
+    x++;
+    }
+return(0);
+}

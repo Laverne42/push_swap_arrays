@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:32:41 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/11/28 10:09:17 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:56:24 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft/libft.h"
 # include <unistd.h>
+# include <limits.h>
 
 // Estructura
 typedef struct s_stack
@@ -33,5 +34,7 @@ int	*ft_fill_args(int argc, char **argv);
 // Chequeos
 int     ft_check_digits (char **argv);
 int     ft_check_sort(t_stack *a);
+int     ft_check_dup(t_stack *a);
+int     ft_check_int_max(int argc, char **argv);
 
 #endif

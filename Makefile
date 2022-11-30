@@ -6,11 +6,11 @@
 #    By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 11:02:45 by pmarquez          #+#    #+#              #
-#    Updated: 2022/11/29 11:56:26 by pmarquez         ###   ########.fr        #
+#    Updated: 2022/11/30 11:39:03 by pmarquez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC 		= main.c check.c
+SRC 		= main.c check.c swap.c rotate.c
 
 OBJ_SRC		= $(SRC:.c = .o)
 

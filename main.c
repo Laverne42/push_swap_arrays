@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:00:38 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/11/29 11:56:22 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/11/30 11:38:07 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ void	ft_exit(int code)
 // y que la lista no esté ordenada directamente.
 int	main(int argc, char **argv)
 {
-	t_stack		*a;
 	t_stack		*b;
+	t_stack		*a;
 	int			x;
 	a = malloc(sizeof(t_stack));
 	b = malloc(sizeof(t_stack));
@@ -103,5 +103,6 @@ int	main(int argc, char **argv)
 		printf("Sorted\n");
 		return (0);
 	}
+	ft_rotate_a(a);
 	return (0);
 }

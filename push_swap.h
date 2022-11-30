@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:32:41 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/11/29 11:56:24 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/11/30 11:38:30 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,11 @@ int     ft_check_digits (char **argv);
 int     ft_check_sort(t_stack *a);
 int     ft_check_dup(t_stack *a);
 int     ft_check_int_max(int argc, char **argv);
+
+// Movimientos
+void    ft_swap_a(t_stack *a);
+void    ft_swap_b(t_stack *b);
+void    ft_swap_a_b(t_stack *a, t_stack *b);
+void    ft_rotate_a(t_stack *a);
 
 #endif

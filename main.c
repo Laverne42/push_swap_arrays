@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:00:38 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/05 11:15:52 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/05 12:00:31 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,6 @@ int	main(int argc, char **argv)
 		printf("Sorted\n");
 		return (0);
 	}
-	ft_reverse_rotate_a(a);
+	ft_case_3(a);
 	return (0);
 }

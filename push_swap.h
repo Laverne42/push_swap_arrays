@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:32:41 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/05 11:37:51 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/05 12:00:52 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,8 @@ void    ft_push_b(t_stack *a, t_stack *b);
 void    ft_reverse_rotate_a(t_stack *a);
 void    ft_reverse_rotate_b(t_stack *b);
 void    ft_reverse_rotate_a_b(t_stack *a, t_stack *b);
+
+// Casos
+void    ft_case_3 (t_stack *a);
 
 #endif

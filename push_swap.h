@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:32:41 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/11/30 11:38:30 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/05 10:49:56 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,10 @@ void    ft_swap_a(t_stack *a);
 void    ft_swap_b(t_stack *b);
 void    ft_swap_a_b(t_stack *a, t_stack *b);
 void    ft_rotate_a(t_stack *a);
+void    ft_rotate_b(t_stack *b);
+void    ft_rotate_a_b(t_stack *a, t_stack *b);
+void    ft_push_a(t_stack *a, t_stack *b);
+void    ft_push_b(t_stack *a, t_stack *b);
+void    ft_push_a_b(t_stack *a, t_stack *b);
 
 #endif

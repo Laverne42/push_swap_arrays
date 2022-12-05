@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:00:38 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/02 09:20:23 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/05 10:56:29 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	main(int argc, char **argv)
 		printf("Error INT_MAX\n");
 		ft_exit(1);
 	}
-	a->array = malloc ((argc -1) * sizeof(int));
+	a->array = malloc ((argc - 1) * sizeof(int));
 	b->array = malloc ((argc - 1) * sizeof(int));
 	if (a->array == NULL || b->array == NULL)
 		return(0);
@@ -103,6 +103,13 @@ int	main(int argc, char **argv)
 		printf("Sorted\n");
 		return (0);
 	}
-	ft_rotate_a(a);
+	ft_push_b(a, b);
+	ft_push_b(a, b);
+	ft_push_b(a, b);
+	ft_push_b(a, b);
+	ft_push_b(a, b);
+	ft_push_b(a, b);
+	ft_push_b(a, b);
+	ft_push_b(a, b);
 	return (0);
 }

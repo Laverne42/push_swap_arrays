@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 11:17:52 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/05 11:13:35 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/06 10:02:44 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 // el número de la primera posición guardado previamente.
 void    ft_rotate_a(t_stack *a)
 {
-printf("array inicial: %d%d%d%d%d\n", a->array[0], a->array[1], a->array[2], a->array[3], a->array[4]);
 int temp;
 int temp2;
 int x;
@@ -39,8 +38,7 @@ while (y > x)
     y--;
     }
 a->array[1] = temp2;
-printf("Debería ser: 51234\n");
-printf("array final: %d%d%d%d%d", a->array[0], a->array[1], a->array[2], a->array[3], a->array[4]);
+write (1, "ra\n", 3);
 }
 
 // rb
@@ -64,6 +62,7 @@ while (y > x)
     y--;
     }
 b->array[1] = temp2;
+write (1, "rb\n", 3);
 }
 
 // rr (ra y rb)
@@ -72,4 +71,5 @@ void    ft_rotate_a_b(t_stack *a, t_stack *b)
 {
     ft_rotate_a(a);
     ft_rotate_b(b);
+    write (1, "rr\n", 3);
 }

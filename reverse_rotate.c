@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:14:24 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/05 11:37:25 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/06 10:03:20 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 // el número de la primera posición guardado previamente.
 void    ft_reverse_rotate_a(t_stack *a)
 {
-printf("array inicial: %d%d%d%d%d\n", a->array[0], a->array[1], a->array[2], a->array[3], a->array[4]);
 int x;
 int y;
 int temp;
@@ -35,8 +34,7 @@ while (y > x)
     x++;
     }
 a->array[a->max] = temp;
-printf("Debería ser: 23451\n");
-printf("array final: %d%d%d%d%d", a->array[0], a->array[1], a->array[2], a->array[3], a->array[4]);
+write (1, "rra\n", 4);
 }
 
 // rrb
@@ -55,10 +53,12 @@ while (y > x)
     x++;
     }
 b->array[b->max] = temp;
+write (1, "rrb\n", 4);
 }
 
 void    ft_reverse_rotate_a_b(t_stack *a, t_stack *b)
 {
     ft_reverse_rotate_a(a);
     ft_reverse_rotate_b(b);
+    write (1, "rrr\n", 4);
 }

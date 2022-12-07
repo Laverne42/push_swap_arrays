@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:32:41 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/07 11:48:21 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/07 12:38:15 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void    ft_3_numbers (t_stack *a);
 
 // Utilidades
 void	ft_push_swap(t_stack *a, int argc);
-int     ft_size_of_array (t_stack *a);
+int     ft_size_split_counter (char **argv);
+int     ft_args_options(int argc, char **argv);
 
 #endif

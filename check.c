@@ -6,25 +6,34 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 08:58:20 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/07 12:00:40 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/07 12:40:20 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_size_of_array (t_stack *a)
+int ft_args_options(int argc, char **argv)
 {
-    int size_array;
-    int size_first_element;
-    int length;
+    int x;
+    if (argc == 2 && ft_size_split_counter(argv) > 1)
+        x = ft_size_split_counter(argv);
+    else
+        x = argc - 2;
+printf("x: %d\n", x);
+return(x);
+}
 
-    size_array = sizeof(a->array);
-    printf("size_array: %d\n", size_array);
-    size_first_element = sizeof(a->array[0]);
-        printf("size_first_element: %d\n", size_first_element);
-    length = size_array / size_first_element;
-        printf("length: %d\n", length);
-return(length);
+int ft_size_split_counter (char **argv)
+{
+   char **str;
+   int y;
+
+    y = 0;   
+    str = ft_split(argv[1], ' ');
+	while (str[y])
+		y++;
+    free(str);
+return (y - 1);
 }
 
 // Chequeamos que cada argumento, al convertirlo

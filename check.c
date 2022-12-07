@@ -6,12 +6,16 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 08:58:20 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/07 12:40:20 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/07 12:47:57 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Función que detecta si los argumentos van
+// con comillas o sin comillas y devuelve
+// el número total de números que tendremos
+// en el array en cualquiera de los dos casos.
 int ft_args_options(int argc, char **argv)
 {
     int x;
@@ -19,10 +23,12 @@ int ft_args_options(int argc, char **argv)
         x = ft_size_split_counter(argv);
     else
         x = argc - 2;
-printf("x: %d\n", x);
 return(x);
 }
 
+// Contador para utilizar cuando el argumento
+// vaya entre comillas y sacar el número
+// total de números.
 int ft_size_split_counter (char **argv)
 {
    char **str;

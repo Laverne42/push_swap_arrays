@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:00:38 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/07 12:39:46 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/07 12:47:13 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,32 +85,21 @@ int	main(int argc, char **argv)
 	t_stack		*a;
 	int			x;
 	a = malloc(sizeof(t_stack));
-		// proteger malloc
 	b = malloc(sizeof(t_stack));
+	if (a == NULL || b == NULL)
+		return(0);
 	x = 0;
 	if (ft_check_int_max(argc, argv) == 1)
 	{
 		printf("Error INT_MAX\n");
 		ft_exit(1);
 	}
-	// OJO -> Malloc de 'a' no siempre de argc - 1, si tiene un solo argumento entre comillas, fail.
 	a->array = malloc ((ft_args_options(argc, argv)) * sizeof(int));
 	b->array = malloc ((argc - 1) * sizeof(int));
 	if (a->array == NULL || b->array == NULL)
 		return(0);
 	a->array = ft_fill_args(argc, argv);
 	a->max = ft_args_options(argc, argv);
-/* 	if (argc == 2)
-	{
-		a->max = ft_size_split_counter(argv);
-		printf("a->max 1:%d\n", a->max);
-	}
-	else 
-	{
-		a->max = argc - 2;
-		printf("a->max 1:%d\n", a->max);
-	} */
-//	printf("a->max con ft_size: %d\n", a->max);
 	b->max = 0;
 	if (ft_check_dup(a) == 1)
 	{

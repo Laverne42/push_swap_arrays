@@ -6,7 +6,7 @@
 #    By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 11:02:45 by pmarquez          #+#    #+#              #
-#    Updated: 2022/12/05 12:01:11 by pmarquez         ###   ########.fr        #
+#    Updated: 2022/12/07 10:42:34 by pmarquez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ EXEC		= push_swap
 
 CC			= GCC
 
-CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		= -Wall -Werror -Wextra -g
 
 all			: $(EXEC)
 

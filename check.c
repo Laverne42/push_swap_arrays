@@ -6,11 +6,26 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 08:58:20 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/11/29 11:56:23 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/07 12:00:40 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int ft_size_of_array (t_stack *a)
+{
+    int size_array;
+    int size_first_element;
+    int length;
+
+    size_array = sizeof(a->array);
+    printf("size_array: %d\n", size_array);
+    size_first_element = sizeof(a->array[0]);
+        printf("size_first_element: %d\n", size_first_element);
+    length = size_array / size_first_element;
+        printf("length: %d\n", length);
+return(length);
+}
 
 // Chequeamos que cada argumento, al convertirlo
 // en número, no se pase del INT_MIN ni del INT_MAX.
@@ -37,32 +52,6 @@ int	ft_check_int_max(int argc, char **argv)
     return (0);
 }
 
-// Saltamos el posible signo inicial (+/-) si lo hay
-// y recorremos cada posición comprobando que sea un dígito.
-// Si alguna posición no lo es, salimos con error.
-int ft_check_digits(char **argv)
-{
-    int x;
-    int y;
-
-    x = 1;
-    y = 0;
-    if (!argv[0])
-        ft_exit(1);
-    while (argv[x])
-    {
-        if (argv[x][y] == '-' || argv[x][y] == '+')
-            y++;
-        if (ft_isdigit(argv[x][y]) == 0)
-            return(1);
-        while (ft_isdigit(argv[x][y] == 1))
-            y++;
-    x++;
-    y = 0;
-    }
-return(0);
-}
-
 // Comprobación de si la lista está ordenada directamente.
 // Como el array lo rellenamos al revés con ft_fill_args,
 // comprobamos que la última posición vaya siendo mayor que la
@@ -71,10 +60,11 @@ return(0);
 int ft_check_sort(t_stack *a)
 {
     int x;
-     
     x = a->max;
 	while (x >= 0 && a->array[x] < a->array[x-1])
-		x--;
+	{
+    	x--;
+    }
  	if (x == 0)
        	return(1);
 return(0);

@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:00:38 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/07 12:47:13 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/09 09:35:59 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // Relleno del array con los números recibidos por argumentos.
 // Si hay dos argumentos (números entre comillas), -> ft_split y atoi
-// Si hay más de dos, -> atoi
+// Si hay más de dos -> atoi
 // En ambos casos los guardamos en orden inverso
 // NOTA: REVISAR TABULACIONES EN ARGC == 2
 int	*ft_fill_args(int argc, char **argv)
@@ -99,7 +99,8 @@ int	main(int argc, char **argv)
 	if (a->array == NULL || b->array == NULL)
 		return(0);
 	a->array = ft_fill_args(argc, argv);
-	a->max = ft_args_options(argc, argv);
+	a->max = ft_args_options(argc, argv) - 1;
+	//printf("a->max: %d\n", a->max);
 	b->max = 0;
 	if (ft_check_dup(a) == 1)
 	{
@@ -111,6 +112,7 @@ int	main(int argc, char **argv)
 		printf("Sorted\n");
 		return (0);
 	}
+//	ft_arg_type (argc, argv);
 	ft_push_swap(a, argc);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:32:41 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/08 11:44:34 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/09 10:30:59 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,10 @@ void    ft_swap_a_reverse_rotate_a (t_stack *a);
 
 // Casos
 void    ft_3_numbers (t_stack *a);
+void    ft_4_numbers (t_stack *a, t_stack *b);
 
 // Utilidades
-void	ft_push_swap(t_stack *a, int argc);
+void	ft_push_swap(t_stack *a, t_stack *b, int argc);
 int     ft_size_split_counter (char **argv);
 int     ft_args_options(int argc, char **argv);
 int     ft_arg_type(int argc, char **argv);

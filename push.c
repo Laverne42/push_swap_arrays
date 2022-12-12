@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 08:33:52 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/06 10:05:18 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/12 09:13:47 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 // pa
 // Pone el primer elemento de 'b' en el top
 // del stack 'a'. No hace nada si 'b' está vacío.
+
 void    ft_push_a(t_stack *a, t_stack *b)
 {
     int x;
@@ -22,10 +23,9 @@ void    ft_push_a(t_stack *a, t_stack *b)
     x = 0;    
     if(b->array[x] == 0)
         return;
-    else if (!a->array[a->max])
+    else if (a->max > 0)
     {
         a->array[a->max] = b->array[b->max];
-        b->array[b->max] = '\0';
     b->max--;
     }
     else if (b->max >= 0)
@@ -46,18 +46,14 @@ void    ft_push_b(t_stack *a, t_stack *b)
     int x;
 
     x = 0;    
-    if(a->array[x] == 0)
-        return;
-    else if (!b->array[b->max])
+    if (b->max == 0)
     {
         b->array[b->max] = a->array[a->max];
-        a->array[a->max] = '\0';
     a->max--;
     }
-    else if (a->max >= 0)
+    else if (b->max > 0)
     {
         b->array[b->max + 1] = a->array[a->max];
-        a->array[a->max] = '\0';
         a->max--;
         b->max++;
     }

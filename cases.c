@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:52:36 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/09 09:35:32 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/12 09:34:37 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,44 @@ void    ft_3_numbers (t_stack *a)
                 ft_reverse_rotate_a(a); 
         }    
 //printf("array ordenado: %d %d %d\n", a->array[0], a->array[1], a->array[2]);
+}
+
+
+// Definimos el primer número del array como el más bajo (min)
+// y vamos comparando con los siguientes, redefiniendo
+// el min si procede.
+void    ft_4_numbers (t_stack *a, t_stack *b)
+{
+    int x;
+    int y;
+    int position;
+    int min;
+    
+    
+    x = 0;
+    position = 0;
+    min = a->array[x];
+    while (x < a->max)
+    {
+    y = x + 1;
+        if (a->array[y] < min)
+        {
+            min = a->array[y];
+            position = y;    
+        }
+    x++;
+    }
+    if (position == 0)
+        ft_reverse_rotate_a(a);
+    else if (position == 1)
+    {
+        ft_reverse_rotate_a(a);
+        ft_reverse_rotate_a(a);
+    }
+    else if (position == 2)
+        ft_swap_a(a);
+    ft_push_b(a, b);
+    ft_3_numbers(a);
+    a->max++;
+    ft_push_a(a, b);
 }

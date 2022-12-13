@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:52:36 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/12 09:34:37 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:19:00 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,18 @@ void    ft_swap_a_rotate_a (t_stack *a)
 void    ft_swap_a_reverse_rotate_a (t_stack *a)
 {
     ft_swap_a(a);
+    ft_reverse_rotate_a(a);
+}
+
+void    ft_double_rotate_a(t_stack *a)
+{
+    ft_rotate_a(a);
+    ft_rotate_a(a);
+}
+
+void    ft_double_reverse_rotate_a(t_stack *a)
+{
+    ft_reverse_rotate_a(a);
     ft_reverse_rotate_a(a);
 }
 
@@ -60,6 +72,37 @@ void    ft_4_numbers (t_stack *a, t_stack *b)
     int position;
     int min;
     
+    x = 0;
+    position = 0;
+    min = a->array[x];
+    while (x < a->max)
+    {
+    y = x + 1;
+        if (a->array[y] < min)
+        {
+            min = a->array[y];
+            position = y;    
+        }
+    x++;
+    }
+    if (position == 0)
+        ft_reverse_rotate_a(a);
+    else if (position == 1)
+        ft_double_rotate_a(a);
+    else if (position == 2)
+        ft_swap_a(a);
+    ft_push_b(a, b);
+    ft_3_numbers(a);
+    a->max++;
+    ft_push_a(a, b);
+}
+
+void    ft_5_numbers (t_stack *a, t_stack *b)
+{
+    int x;
+    int y;
+    int position;
+    int min;
     
     x = 0;
     position = 0;
@@ -77,14 +120,13 @@ void    ft_4_numbers (t_stack *a, t_stack *b)
     if (position == 0)
         ft_reverse_rotate_a(a);
     else if (position == 1)
-    {
-        ft_reverse_rotate_a(a);
-        ft_reverse_rotate_a(a);
-    }
+        ft_double_reverse_rotate_a(a);
     else if (position == 2)
+        ft_double_rotate_a(a);
+    else if (position == 3)
         ft_swap_a(a);
     ft_push_b(a, b);
-    ft_3_numbers(a);
+    ft_4_numbers(a, b);
     a->max++;
     ft_push_a(a, b);
 }

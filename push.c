@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 08:33:52 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/12 09:13:47 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:15:21 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void    ft_push_a(t_stack *a, t_stack *b)
 {
     int x;
 
-    x = 0;    
+    x = 0;
     if(b->array[x] == 0)
         return;
     else if (a->max > 0)
@@ -35,6 +35,7 @@ void    ft_push_a(t_stack *a, t_stack *b)
         b->max--;
         a->max++;
     }
+    a->max++;    
 write (1, "pa\n", 3);
 }
 

@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 08:58:20 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/09 09:29:45 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:19:42 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,29 +29,6 @@ int ft_size_split_counter (char **argv)
    free(str);
 return (y);
 }
-
-// Función para determinar si los números
-// se reciben en un único argumento entre comillas
-// o no.
-int ft_arg_type(int argc, char **argv)
-{
-    int x;
-    
-    //x = 0;
-    if (argc == 2 && ft_size_split_counter(argv) > 1)
-    {
-        printf("El argumento está entre comillas y tiene %d números\n", ft_args_options(argc, argv));
-        x = 0;        
-    }
-    else
-    {
-        printf("El argumento no está entre comillas y tiene %d números\n", ft_args_options(argc, argv));
-        x = 1;
-    }
-return (x);
-}
-
-
 
 // Función que detecta si los argumentos van
 // con comillas o sin comillas y devuelve

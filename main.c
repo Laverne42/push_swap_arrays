@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:00:38 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/09 11:11:10 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:19:22 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_exit(int code)
 void	ft_push_swap(t_stack *a, t_stack *b, int argc)
 {
 	if (argc > 0)
-		ft_4_numbers(a, b);
+		ft_5_numbers(a, b);
 	else
 		write(1, "hola\n", 5);
 }
@@ -111,7 +111,6 @@ int	main(int argc, char **argv)
 		printf("Sorted\n");
 		return (0);
 	}
-//	ft_arg_type (argc, argv);
 	ft_push_swap(a, b, argc);
 	return (0);
 }

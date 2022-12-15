@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:00:38 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/13 17:19:22 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/15 11:47:58 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 // Si hay dos argumentos (números entre comillas), -> ft_split y atoi
 // Si hay más de dos -> atoi
 // En ambos casos los guardamos en orden inverso
-// NOTA: REVISAR TABULACIONES EN ARGC == 2
 int	*ft_fill_args(int argc, char **argv)
 {
 	int		*arr;
@@ -58,18 +57,25 @@ int	*ft_fill_args(int argc, char **argv)
 
 // Salida de error para utilizar cuando sea necesario
 // en la gestión de errores de cada función.
-void	ft_exit(int code)
+// El error va por STDERR (write -> 2)
+void	ft_exit()
 {
-	write(1, "Error\n", 6);
-	exit(code);
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
 }
 
-void	ft_push_swap(t_stack *a, t_stack *b, int argc)
+void	ft_push_swap(t_stack *a, t_stack *b, int argc, char **argv)
 {
-	if (argc > 0)
+//printf("args_options: %d\n", ft_args_options(argc, argv));
+	if (ft_args_options(argc, argv) == 2)
+		ft_2_numbers(a);
+	else if (ft_args_options(argc, argv) == 3)
+		ft_3_numbers(a);
+	else if (ft_args_options(argc, argv) == 4)
+		ft_4_numbers(a, b);
+	else if (ft_args_options(argc, argv) == 5)
 		ft_5_numbers(a, b);
-	else
-		write(1, "hola\n", 5);
+	// else ft_lis 
 }
 
 // Creamos a y b en la estructura para los dos stacks.
@@ -91,7 +97,6 @@ int	main(int argc, char **argv)
 	x = 0;
 	if (ft_check_int_max(argc, argv) == 1)
 	{
-		printf("Error INT_MAX\n");
 		ft_exit(1);
 	}
 	a->array = malloc ((ft_args_options(argc, argv)) * sizeof(int));
@@ -100,17 +105,15 @@ int	main(int argc, char **argv)
 		return(0);
 	a->array = ft_fill_args(argc, argv);
 	a->max = ft_args_options(argc, argv) - 1;
-	b->max = 0;
+	b->max = -1;
 	if (ft_check_dup(a) == 1)
 	{
-		printf("Error dup\n");
 		ft_exit(1);
 	}
 	if (ft_check_sort(a) == 1)
 	{
-		printf("Sorted\n");
 		return (0);
 	}
-	ft_push_swap(a, b, argc);
+	ft_push_swap(a, b, argc, argv);
 	return (0);
 }

@@ -6,13 +6,11 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 08:58:20 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/13 17:19:42 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/15 09:35:39 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-////////// REVISAR CHECK DUP CON COMILLAS (¿PUEDE SER ALGO DE A->MAX?). ERROR CON ATOI LONG LONG EN FILL_ARGS EN MAIN ////////
 
 // Contador para utilizar cuando el argumento
 // vaya entre comillas y sacar el número
@@ -110,10 +108,8 @@ int ft_check_sort(t_stack *a)
 {
     int x;
     x = a->max;
-	while (x >= 0 && a->array[x] < a->array[x-1])
-	{
+	while (x > 0 && a->array[x] < a->array[x-1])
     	x--;
-    }
  	if (x == 0)
        	return(1);
 return(0);

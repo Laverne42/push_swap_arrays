@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:00:38 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/15 11:47:58 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/20 12:24:33 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	*ft_fill_args(int argc, char **argv)
 	if (argc == 2 && y >= 1)
 	{
     	arr = malloc(sizeof(int) * y);
+		if (arr == NULL)
+			return(0);
 		while (str[z] && z >= 0)
 		{
 			arr[z] = ft_atoi(str[y - 1]);
@@ -45,6 +47,8 @@ int	*ft_fill_args(int argc, char **argv)
 	else if (argc > 2 || y == 1)
 	{
 		arr = malloc(sizeof(int) * x);
+		if (arr == NULL)
+			return(0);
 		while (argv[z] && x > 0)
 		{
 			arr[z] = ft_atoi(argv[x]);
@@ -96,9 +100,7 @@ int	main(int argc, char **argv)
 		return(0);
 	x = 0;
 	if (ft_check_int_max(argc, argv) == 1)
-	{
 		ft_exit(1);
-	}
 	a->array = malloc ((ft_args_options(argc, argv)) * sizeof(int));
 	b->array = malloc ((argc - 1) * sizeof(int));
 	if (a->array == NULL || b->array == NULL)
@@ -114,6 +116,7 @@ int	main(int argc, char **argv)
 	{
 		return (0);
 	}
+	///ft_lis(a);
 	ft_push_swap(a, b, argc, argv);
 	return (0);
 }

@@ -6,12 +6,13 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 13:50:57 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/15 11:42:31 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/19 11:07:04 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <limits.h>
+#include <stdlib.h>
 
 // Salida de error para el atoi
 void	ft_exit_atoi()
@@ -34,22 +35,23 @@ int	ft_atoi(const char *str)
 	neg = 1;
 	while ((str[x] == 32) || (str[x] >= 9 && str[x] <= 13))
 		x++;
-	if (str[x] == '-')
+	if (str[x] == '-' && ft_isdigit(str[x + 1]) == 0)
+		ft_exit_atoi();
+	if (str[x] == '+' && ft_isdigit(str[x + 1]) == 0)
+		ft_exit_atoi();
+	if (str[x] == '-' && ft_isdigit(str[x + 1]) == 1)
 	{
 		neg = -1;
 		x++;
 	}
-	else if (str[x] == '+')
+	else if (str[x] == '+' && ft_isdigit(str[x + 1]) == 1)
 		x++;
 	while (str[x])
 	{
 		if (str[x] >= '0' && str[x] <= '9')
 			n = n * 10 + (str[x] - '0');
 		else
-		{
-	//	write(1, "Error digits\n", 13);
 		ft_exit_atoi();
-		}
 	x++;
 	}
 	return (n * neg);

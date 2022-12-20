@@ -6,39 +6,73 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:36:53 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/14 11:35:53 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/20 12:25:08 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-void    ft_lis(t_stack *a, t_stack *b)
+// Función para obtener la longitud de la subsecuencia ordenada más larga
+int ft_lis_max(int *lis)
 {
     int x;
-    int y;
-    int index;
-    int **position; // almacenar la posición y el valor de sequence_max actual
-    int sequence_max;
+    int max;
     
     x = 0;
-    y = x + 1;
-    sequence_max = 0;
-    position = NULL;
-    index = 0;
+    max = 0;
+    while (lis[x])
+    {
+        if (lis[x] > max)
+            max = lis[x];
+    x++;     
+    }
+//printf("MAX LIS: %d\n", max);
+return(max);
+}
+
+/* int *ft_sequence(t_stack *a, int max, int *lis)
+{
+    int x;
+    x = 0;
+
     while (a->array[x])
     {
-        if (a->array[x] > a->array[y])
-        {
-            
-        }
-        else if (a->array[x] < a->array[y])
-        {
-       
-        }
-    x++;
-    index++;
+        
     }
-    printf("position: %d\n", **position);
-    printf("seq_max: %d\n", sequence_max);
-    ft_push_b(a, b);
+} */
+
+// Con dos índices (x = 0 / y = 1) vamos recorriendo el array desde a->max hacia abajo.
+// Comparamos el número con el siguiente. Si el primero es menor, se incrementa el lis,
+// siempre que el lis de x sea menor que el lis de y + 1.
+int    *ft_lis(t_stack *a)
+{
+    int *lis;
+    int x;
+    int y;
+           
+    x = a->max;
+    lis = malloc(a->max * sizeof(int));
+    if (!lis)
+        return(0);
+    while (x >= 0)
+    {
+        lis[x] = 1;
+        y = a->max;
+        while (y > x)
+        {
+            if (a->array[y] < a->array[x] && lis[x] < lis[y] + 1)
+                lis[x] = lis[y] + 1;
+            y--;
+        }
+        x--;
+    }
+ 
+/*  x = a->max;
+    while(x >= 0)
+    {
+        printf("%d - lis:%d\n", a->array[x], lis[x]);
+        x--;
+    } */
+//ft_sequence(lis);
+return(lis);
 }

@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 08:58:20 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/15 09:35:39 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/19 11:20:59 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int	ft_check_int_max(int argc, char **argv)
     z = ft_args_options(argc, argv);
     str = ft_split(argv[1], ' ');
     arr = malloc(sizeof(long long));
+    if (arr == NULL)
+        return(0);
 	if (argc == 2 && z >= 1)
     {
     y = 0;

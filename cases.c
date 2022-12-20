@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:52:36 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/15 11:52:14 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/19 11:56:23 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void    ft_4_numbers (t_stack *a, t_stack *b)
     x = 0;
     position = 0;
     min = a->array[x];
-//    printf("array inicial: %d %d %d %d\n", a->array[0], a->array[1], a->array[2], a->array[3]);
+    //printf("array inicial: %d %d %d %d\n", a->array[0], a->array[1], a->array[2], a->array[3]);
      if ((a->array[0] > a->array[1] && (a->array[1] > a->array[2]) && (a->array[2] > a->array[3])))
         return;
     while (x < a->max)
@@ -121,5 +121,5 @@ void    ft_5_numbers (t_stack *a, t_stack *b)
     ft_push_b(a, b);
     ft_4_numbers(a, b);
     ft_push_a(a, b);
-    //printf("array final: %d %d %d %d %d\n", a->array[0], a->array[1], a->array[2], a->array[3], a->array[4]);
+//    printf("array final: %d %d %d %d %d\n", a->array[0], a->array[1], a->array[2], a->array[3], a->array[4]);
 }

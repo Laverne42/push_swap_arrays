@@ -116,7 +116,7 @@ int	main(int argc, char **argv)
 	{
 		return (0);
 	}
-	///ft_lis(a);
-	ft_push_swap(a, b, argc, argv);
+	ft_lis(a);
+	//ft_push_swap(a, b, argc, argv);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:32:41 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/20 12:24:51 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/21 13:33:06 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void    ft_5_numbers (t_stack *a, t_stack *b);
 
 // L.I.S.
 int     *ft_lis(t_stack *a);
-int     ft_lis_max(int *lis);
-//int     *ft_sequence(t_stack *a, int max, int *lis);
+int     ft_lis_max(int *lis, t_stack *a);
+int     *ft_sequence(t_stack *a, int *lis);
 
 // Utilidades
 void	ft_push_swap(t_stack *a, t_stack *b, int argc, char **argv);

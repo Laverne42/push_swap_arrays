@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:32:41 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/27 09:40:08 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/27 10:45:53 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,15 @@ void    ft_4_numbers (t_stack *a, t_stack *b);
 void    ft_5_numbers (t_stack *a, t_stack *b);
 
 // L.I.S.
-int     *ft_lis(t_stack *a);
+int     *ft_lis(t_stack *a, t_stack *b);
 int     ft_lis_max(int *lis, t_stack *a);
 int     *ft_sequence(t_stack *a, int *lis);
-//void    ft_lis_to_a(int *lis_stack_a, t_stack *a, t_stack *b);
+void    ft_lis_to_a(t_stack *a, t_stack *b, int *lis_stack_a);
 
 // Utilidades
 void	ft_push_swap(t_stack *a, t_stack *b, int argc, char **argv);
 int     ft_size_split_counter (char **argv);
 int     ft_args_options(int argc, char **argv);
+int     ft_search_number(int n, int *lis_stack_a, t_stack *a);
 
 #endif

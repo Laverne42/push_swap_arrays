@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:36:53 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/27 09:44:01 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/27 11:30:35 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,71 @@ x++;
 return(lis_stack_a);
 }
 
+// Comprueba si un número determinado está en lis_stack_a.
+int ft_search_number(int n, int *lis_stack_a, t_stack *a)
+{
+    int x;
+    
+    x = a->max;
+    while (x >= 0)
+        {
+            if (n == lis_stack_a[x])
+            {
+            // printf("El número %d está en lis_stack_a\n", n);
+                return(1);
+            }
+        x--;
+        }
+//printf("El número %d no está en lis_stack_a\n", n);
+return (0);
+}
+
+// Vamos pasando uno a uno, al llamar a la función ft_search_number,
+// cada número del stack 'a', para saber si debemos dejarlo en a
+// (en el caso de que esté en el lis_stack_a) o hacerle
+// push a 'b' (en caso contrario).
+void ft_lis_to_a(t_stack *a, t_stack *b, int *lis_stack_a)
+{
+    int x;
+    int y;
+    
+    x = a->max;
+    y = a->max;
+    while (y >= 0)
+    {
+        if (ft_search_number(a->array[x], lis_stack_a, a) == 1)
+        {
+            printf("El número %d está en lis_stack_a\n", a->array[x]);
+            ft_rotate_a(a);
+           y--;
+        }
+        else if (ft_search_number(a->array[x], lis_stack_a, a) == 0)
+        {
+            printf("El número %d no está en lis_stack_a\n", a->array[x]);
+            ft_push_b(a, b);
+            x = a->max;
+            y--;
+        }    
+    }
+x = a->max;
+    while(x >= 0)
+    {
+        printf("a->array tras lis:%d\n", a->array[x]);
+        x--;
+    }
+        printf("----------------------\n");
+x = b->max;
+    while(x >= 0)
+    {
+        printf("b->array tras lis:%d\n", b->array[x]);
+        x--;
+    }    
+}
+
 // Con dos índices (x = 0 / y = 1) vamos recorriendo el array desde a->max hacia abajo.
 // Comparamos el número con el siguiente. Si el primero es menor, se incrementa el lis,
 // siempre que el lis de x sea menor que el lis de y + 1.
-int    *ft_lis(t_stack *a)
+int    *ft_lis(t_stack *a, t_stack *b)
 {
     int *lis;
     int x;
@@ -95,6 +156,7 @@ int    *ft_lis(t_stack *a)
         printf("%d - lis:%d\n", a->array[x], lis[x]);
         x--;
     }
-ft_sequence(a, lis);
+//ft_sequence(a, lis);
+ft_lis_to_a(a, b, ft_sequence(a, lis));
 return(lis);
 }

@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:00:38 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/27 09:39:42 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/27 10:14:40 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ int	main(int argc, char **argv)
 	{
 		return (0);
 	}
-	ft_lis(a);
+	ft_lis(a, b);
 	//ft_push_swap(a, b, argc, argv);
 	return (0);
 }

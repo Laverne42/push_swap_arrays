@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:00:38 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/20 12:24:33 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/27 09:39:42 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int	main(int argc, char **argv)
 		return(0);
 	x = 0;
 	if (ft_check_int_max(argc, argv) == 1)
-		ft_exit(1);
+		ft_exit();
 	a->array = malloc ((ft_args_options(argc, argv)) * sizeof(int));
 	b->array = malloc ((argc - 1) * sizeof(int));
 	if (a->array == NULL || b->array == NULL)
@@ -110,7 +110,7 @@ int	main(int argc, char **argv)
 	b->max = -1;
 	if (ft_check_dup(a) == 1)
 	{
-		ft_exit(1);
+		ft_exit();
 	}
 	if (ft_check_sort(a) == 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:36:53 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/21 13:41:12 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/27 09:44:01 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int *ft_sequence(t_stack *a, int *lis)
     y = 0;
     lis_max = ft_lis_max(lis, a);
     lis_stack_a = malloc(sizeof(int) * lis_max);
-    while(y < a->max && lis_max >= 0)
+    while(y <= a->max && lis_max >= 0)
     {
         if(lis[y] == lis_max)
         {
@@ -55,7 +55,7 @@ int *ft_sequence(t_stack *a, int *lis)
     }
    lis_max = ft_lis_max(lis, a);
 x = 0;
-while(x < a->max)
+while(x < lis_max)
 {
 printf("Lis_stack_a: %d\n", lis_stack_a[x]);
 x++;    

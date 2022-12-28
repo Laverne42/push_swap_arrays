@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:36:53 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/27 11:30:35 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/28 11:50:02 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int ft_lis_max(int *lis, t_stack *a)
             lis_max = lis[x];
     x++;     
     }
-//printf("MAX LIS: %d\n", max);
+a->lis_max_struct = lis_max;
 return(lis_max);
 }
 
@@ -55,7 +55,7 @@ int *ft_sequence(t_stack *a, int *lis)
     }
    lis_max = ft_lis_max(lis, a);
 x = 0;
-while(x < lis_max)
+while(x <= lis_max)
 {
 printf("Lis_stack_a: %d\n", lis_stack_a[x]);
 x++;    
@@ -68,17 +68,14 @@ int ft_search_number(int n, int *lis_stack_a, t_stack *a)
 {
     int x;
     
-    x = a->max;
+    x = a->lis_max_struct; // X DEBE SER IGUAL AL MAX DE LIS_STACK_A, NO DE A
+    printf("x lis max struct: %d\n", x);
     while (x >= 0)
         {
             if (n == lis_stack_a[x])
-            {
-            // printf("El número %d está en lis_stack_a\n", n);
                 return(1);
-            }
         x--;
         }
-//printf("El número %d no está en lis_stack_a\n", n);
 return (0);
 }
 
@@ -99,7 +96,7 @@ void ft_lis_to_a(t_stack *a, t_stack *b, int *lis_stack_a)
         {
             printf("El número %d está en lis_stack_a\n", a->array[x]);
             ft_rotate_a(a);
-           y--;
+            y--;
         }
         else if (ft_search_number(a->array[x], lis_stack_a, a) == 0)
         {

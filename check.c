@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 08:58:20 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/19 11:20:59 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/28 11:02:58 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,13 +129,15 @@ int ft_check_dup(t_stack *a)
 
     x = 0;
     y = 0;
-    while (a->array[y])
+    while (x <= a->max)
     {
         y = x+1;
-        while (y <= a->max && a->array[x] != a->array[y])
+        while (y < a->max && a->array[x] != a->array[y])
+        {
             y++;
-        if (a->array[x] == a->array[y])
-            return(1);
+                if (a->array[x] == a->array[y])
+                    return(1);
+        }
     x++;
     }
 return(0);

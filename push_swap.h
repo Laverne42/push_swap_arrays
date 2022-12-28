@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:32:41 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/27 10:45:53 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/28 11:26:51 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_stack
 int *array;
 int max;
 int position;
+int lis_max_struct;
 }			t_stack;
 
 // Gestión de errores

@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:00:38 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/27 10:14:40 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/29 11:49:32 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,9 @@ void	ft_push_swap(t_stack *a, t_stack *b, int argc, char **argv)
 // sean todos dígitos, que ningún numero se salga del
 // rango de INT_MIN - INT_MAX, que no haya duplicados 
 // y que la lista no esté ordenada directamente.
+// OJO: A-> MAX almacena el número de números en el stack_a (3 números: a->max es 3)
+// pero B-> MAX almacena el número de números menos uno (porque se inicializa en -1
+// para saber cuándo está vacío. Si hay 3 números, b->max será 2).
 int	main(int argc, char **argv)
 {
 	t_stack		*b;

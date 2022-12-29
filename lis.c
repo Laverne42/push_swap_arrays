@@ -6,9 +6,11 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:36:53 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/28 11:50:02 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/29 11:09:43 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+# include "push_swap.h"
 
 # include "push_swap.h"
 
@@ -44,7 +46,7 @@ int *ft_sequence(t_stack *a, int *lis)
     y = 0;
     lis_max = ft_lis_max(lis, a);
     lis_stack_a = malloc(sizeof(int) * lis_max);
-    while(y <= a->max && lis_max >= 0)
+    while(y < a->max && lis_max > 0)
     {
         if(lis[y] == lis_max)
         {
@@ -55,7 +57,7 @@ int *ft_sequence(t_stack *a, int *lis)
     }
    lis_max = ft_lis_max(lis, a);
 x = 0;
-while(x <= lis_max)
+while(x < lis_max)
 {
 printf("Lis_stack_a: %d\n", lis_stack_a[x]);
 x++;    
@@ -68,11 +70,11 @@ int ft_search_number(int n, int *lis_stack_a, t_stack *a)
 {
     int x;
     
-    x = a->lis_max_struct; // X DEBE SER IGUAL AL MAX DE LIS_STACK_A, NO DE A
-    printf("x lis max struct: %d\n", x);
-    while (x >= 0)
+    x = a->lis_max_struct;
+   // printf("x lis max struct: %d\n", x);
+    while (x > 0)
         {
-            if (n == lis_stack_a[x])
+            if (n == lis_stack_a[x - 1])
                 return(1);
         x--;
         }

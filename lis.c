@@ -6,11 +6,9 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:36:53 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/29 11:48:28 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/29 12:18:50 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-# include "push_swap.h"
 
 # include "push_swap.h"
 
@@ -157,5 +155,7 @@ int    *ft_lis(t_stack *a, t_stack *b)
     }
 //ft_sequence(a, lis);
 ft_lis_to_a(a, b, ft_sequence(a, lis));
+printf("----------------------\n");
+ft_moves_b(b);
 return(lis);
 }

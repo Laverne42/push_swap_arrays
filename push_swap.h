@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:32:41 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/29 12:12:23 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/30 10:22:19 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ void	ft_push_swap(t_stack *a, t_stack *b, int argc, char **argv);
 int     ft_size_split_counter (char **argv);
 int     ft_args_options(int argc, char **argv);
 int     ft_search_number(int n, int *lis_stack_a, t_stack *a);
+int     ft_higher_number_a(t_stack *a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:15:07 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/29 12:27:52 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/30 10:46:46 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,50 @@ x++;
 return(moves_b);
 }
 
-// Coste de movimientos de a: por cada número de b, cuántos movimientos me cuesta poner en el top de a
+// Función que busca el número más alto en a
+int ft_higher_number_a(t_stack *a)
+{
+    int x;
+    int y;
+    int higher_number;
+    
+    x = a->max - 1;
+    higher_number = a->array[x];
+    while (x > 0)
+    {
+    y = x - 1;
+        if (a->array[y] > a->array[x])
+            higher_number = a->array[y];
+    x--;
+    }
+printf("Higher number a: %d\n", higher_number);
+return(higher_number);
+}
+
+// Función para calcular la posición en a del número inmediatamente
+// superior al número top de b.
+int ft_position_next_a(t_stack *a, t_stack *b)
+{
+    int x;
+    int y;
+    int z;
+    int position;
+    
+    x = b->max;
+    y = a->max - 1;
+    z = ft_higher_number_a(a);
+    while(y >= 0)
+    {
+        if (a->array[y] > b->array[x] && a->array[y] < z)
+            position = a->array[y];
+        else
+            y--;
+    }
+}
+
+// Coste de movimientos de a: por cada número de b, cuántos movimientos cuesta poner en el top de a
 // el inmediatamente superior al top de b. Luego, ídem con el siguiente número de b, etc.
 /* int *ft_moves_a(t_stack *a, t_stack *b)
 {
-
-}
- */
+    
+} */

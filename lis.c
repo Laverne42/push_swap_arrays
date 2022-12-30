@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:36:53 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/29 12:18:50 by pmarquez         ###   ########.fr       */
+/*   Updated: 2022/12/30 10:40:42 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int *ft_sequence(t_stack *a, int *lis)
     y = 0;
     lis_max = ft_lis_max(lis, a);
     lis_stack_a = malloc(sizeof(int) * lis_max);
-    while(y < a->max && lis_max > 0)
+    while(y <= a->max && lis_max > 0)
     {
         if(lis[y] == lis_max)
         {
@@ -69,10 +69,10 @@ int ft_search_number(int n, int *lis_stack_a, t_stack *a)
     int x;
     
     x = a->lis_max_struct;
-   // printf("x lis max struct: %d\n", x);
-    while (x > 0)
+   //printf("x lis max struct: %d\n", x);
+    while (x >= 0)
         {
-            if (n == lis_stack_a[x - 1])
+            if (n == lis_stack_a[x])
                 return(1);
         x--;
         }
@@ -157,5 +157,6 @@ int    *ft_lis(t_stack *a, t_stack *b)
 ft_lis_to_a(a, b, ft_sequence(a, lis));
 printf("----------------------\n");
 ft_moves_b(b);
+ft_higher_number_a(a);
 return(lis);
 }

@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:36:53 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/30 10:40:42 by pmarquez         ###   ########.fr       */
+/*   Updated: 2023/01/09 10:12:18 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,24 @@ int *ft_sequence(t_stack *a, int *lis)
     x = a->max;
     y = 0;
     lis_max = ft_lis_max(lis, a);
+    printf("a_max: %d\n", x);
+    printf("lis_max: %d\n", lis_max);
     lis_stack_a = malloc(sizeof(int) * lis_max);
     while(y <= a->max && lis_max > 0)
     {
         if(lis[y] == lis_max)
         {
             lis_stack_a[lis_max - 1] = a->array[y];
+            printf("->Lis_stack_a: %d\n", lis_stack_a[lis_max - 1]);
             lis_max--;
         }
     y++;
     }
    lis_max = ft_lis_max(lis, a);
 x = 0;
-while(x < lis_max)
+while(x < lis_max) 
 {
-printf("Lis_stack_a: %d\n", lis_stack_a[x]);
+printf("Lis_stack_a: %d - x=%d\n", lis_stack_a[x], x);
 x++;    
 }
 return(lis_stack_a);
@@ -68,7 +71,7 @@ int ft_search_number(int n, int *lis_stack_a, t_stack *a)
 {
     int x;
     
-    x = a->lis_max_struct;
+    x = a->lis_max_struct - 1;
    //printf("x lis max struct: %d\n", x);
     while (x >= 0)
         {
@@ -90,6 +93,7 @@ void ft_lis_to_a(t_stack *a, t_stack *b, int *lis_stack_a)
     
     x = a->max;
     y = a->max;
+    printf("Y: %d\n", y);
     while (y >= 0)
     {
         if (ft_search_number(a->array[x], lis_stack_a, a) == 1)

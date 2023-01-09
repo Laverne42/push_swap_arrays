@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:15:07 by pmarquez          #+#    #+#             */
-/*   Updated: 2022/12/30 10:46:46 by pmarquez         ###   ########.fr       */
+/*   Updated: 2023/01/09 09:49:19 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int *ft_moves_b(t_stack *b)
 x = 0;
 while (x <= b->max)
 {
-printf("Array moves b: %d\n", moves_b[x]);
+//printf("Array moves b: %d\n", moves_b[x]);
 x++;
 }
 return(moves_b);
@@ -75,17 +75,28 @@ int ft_position_next_a(t_stack *a, t_stack *b)
     int y;
     int z;
     int position;
+    int temp;
     
     x = b->max;
-    y = a->max - 1;
+    y = a->max;
     z = ft_higher_number_a(a);
+    position = y;
+    printf("amax: %d\n", position);
+    temp = a->array[y];
+    printf("Temp: %d\n", temp);
     while(y >= 0)
     {
-        if (a->array[y] > b->array[x] && a->array[y] < z)
-            position = a->array[y];
-        else
+        if (b->array[x] > temp)
             y--;
+        else 
+        {
+            temp = a->array[y];               
+            position = y;
+        }
+    y--;
     }
+printf("Posición en a: %d\n", position);
+return(position);
 }
 
 // Coste de movimientos de a: por cada número de b, cuántos movimientos cuesta poner en el top de a

@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:36:53 by pmarquez          #+#    #+#             */
-/*   Updated: 2023/01/09 10:12:18 by pmarquez         ###   ########.fr       */
+/*   Updated: 2023/01/10 09:55:45 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ int *ft_sequence(t_stack *a, int *lis)
     x = a->max;
     y = 0;
     lis_max = ft_lis_max(lis, a);
-    printf("a_max: %d\n", x);
-    printf("lis_max: %d\n", lis_max);
     lis_stack_a = malloc(sizeof(int) * lis_max);
     while(y <= a->max && lis_max > 0)
     {
@@ -60,7 +58,7 @@ int *ft_sequence(t_stack *a, int *lis)
 x = 0;
 while(x < lis_max) 
 {
-printf("Lis_stack_a: %d - x=%d\n", lis_stack_a[x], x);
+//printf("Lis_stack_a: %d - x=%d\n", lis_stack_a[x], x);
 x++;    
 }
 return(lis_stack_a);
@@ -93,18 +91,18 @@ void ft_lis_to_a(t_stack *a, t_stack *b, int *lis_stack_a)
     
     x = a->max;
     y = a->max;
-    printf("Y: %d\n", y);
+   // printf("Y: %d\n", y);
     while (y >= 0)
     {
         if (ft_search_number(a->array[x], lis_stack_a, a) == 1)
         {
-            printf("El número %d está en lis_stack_a\n", a->array[x]);
+        //    printf("El número %d está en lis_stack_a\n", a->array[x]);
             ft_rotate_a(a);
             y--;
         }
         else if (ft_search_number(a->array[x], lis_stack_a, a) == 0)
         {
-            printf("El número %d no está en lis_stack_a\n", a->array[x]);
+        //    printf("El número %d no está en lis_stack_a\n", a->array[x]);
             ft_push_b(a, b);
             x = a->max;
             y--;
@@ -154,7 +152,7 @@ int    *ft_lis(t_stack *a, t_stack *b)
  x = a->max;
     while(x >= 0)
     {
-        printf("%d - lis:%d\n", a->array[x], lis[x]);
+    //    printf("%d - lis:%d\n", a->array[x], lis[x]);
         x--;
     }
 //ft_sequence(a, lis);
@@ -162,5 +160,7 @@ ft_lis_to_a(a, b, ft_sequence(a, lis));
 printf("----------------------\n");
 ft_moves_b(b);
 ft_higher_number_a(a);
+ft_position_next_a(a, b);
+ft_moves_a(a, b);
 return(lis);
 }

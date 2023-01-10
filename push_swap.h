@@ -6,7 +6,7 @@
 /*   By: pmarquez <pmarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 09:32:41 by pmarquez          #+#    #+#             */
-/*   Updated: 2023/01/09 08:32:39 by pmarquez         ###   ########.fr       */
+/*   Updated: 2023/01/10 09:47:49 by pmarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int     *ft_sequence(t_stack *a, int *lis);
 void    ft_lis_to_a(t_stack *a, t_stack *b, int *lis_stack_a);
 int     *ft_moves_b(t_stack *b);
 int     ft_position_next_a(t_stack *a, t_stack *b);
+int     *ft_moves_a(t_stack *a, t_stack *b);
 
 // Utilidades
 void	ft_push_swap(t_stack *a, t_stack *b, int argc, char **argv);
